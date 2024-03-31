@@ -29,7 +29,7 @@
 let fs = require('fs');
 let path = require('path');
 
-const filePath = path.join(process.cwd(), 'dir', 'text.txt');
+// const filePath = path.join(process.cwd(), 'dir', 'text.txt');
 
 // fs.writeFile(filePath, 'Hello world', (err) => {
 //     if (err) {
@@ -58,7 +58,33 @@ const filePath = path.join(process.cwd(), 'dir', 'text.txt');
 //         console.log(err);
 //     }
 // })
+//
+// fs.readdir(path.join(process.cwd(), 'dir'), (err, files) => {
+//     console.log(files);
+// })
+//
+// fs.stat(filePath, (err, stat) => {
+//     console.log(stat);
+// })
 
-fs.readdir(path.join(process.cwd(), 'dir'), (err, files) => {
-    console.log(files);
+// fs.unlink(filePath, () => {
+//
+// })
+
+// fs.rename(path.join(process.cwd(), 'dir', 'file2.js'), path.join(process.cwd(), 'code', 'second.js'), (err) => {
+//     if (err) {
+//     console.log(err);
+//     }
+// })
+
+
+let readStream = fs.createReadStream('./video.mp4');
+
+readStream.on('data', (buffer) => {
+    console.log(buffer);
 })
+
+readStream.on('end', () => {
+    console.log('finish');
+})
+
