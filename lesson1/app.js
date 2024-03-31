@@ -79,12 +79,19 @@ let path = require('path');
 
 
 let readStream = fs.createReadStream('./video.mp4');
+let writeStream = fs.createWriteStream('./dir/file.mp4');
 
-readStream.on('data', (buffer) => {
-    console.log(buffer);
-})
+// readStream.on('data', (buffer) => {
+//     console.log(buffer);
+//     writeStream.write(buffer);
+// })
 
-readStream.on('end', () => {
-    console.log('finish');
-})
+readStream.pipe(writeStream);
+
+// readStream.on('end', () => {
+//     console.log('finish');
+// })
+
+
+// writeStream.write('rrrrrrr');
 
