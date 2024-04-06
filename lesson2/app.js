@@ -2,6 +2,10 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+
 
 app.get('/', (req, res) => {
     // res.write('dasfsdf');
@@ -16,6 +20,12 @@ app.get('/users', (req, res) => {
         {name: 'Volodya'},
         {name: 'Valya'}
     ])
+})
+
+app.post('/users', (req, res) => {
+    console.log(req.body);
+
+    res.end('user created');
 })
 
 
